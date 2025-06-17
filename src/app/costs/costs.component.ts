@@ -10,7 +10,7 @@ import { MockDataService } from '../mock/mock-data.service';
 })
 export class CostsComponent implements OnInit {
   costos: any;
-  constructor(private data: MockDataService) {}
+  constructor(private data: MockDataService) { }
 
   ngOnInit() {
     this.costos = this.data.getCostos();

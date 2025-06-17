@@ -1,0 +1,44 @@
+<div class="p-6 space-y-6">
+  <form class="space-y-4" (ngSubmit)="agregarEmpleado()" #empForm="ngForm">
+    <div class="grid grid-cols-2 gap-4">
+      <input class="input input-bordered w-full" placeholder="Nombre" name="nombre" [(ngModel)]="nuevo.nombre" required>
+      <input class="input input-bordered w-full" placeholder="Cédula" name="cedula" [(ngModel)]="nuevo.cedula" required>
+      <input class="input input-bordered w-full" placeholder="Teléfono" name="telefono" [(ngModel)]="nuevo.telefono" required>
+      <input class="input input-bordered w-full" type="email" placeholder="Correo" name="correo" [(ngModel)]="nuevo.correo" required>
+      <input class="input input-bordered w-full" placeholder="Puesto" name="puesto" [(ngModel)]="nuevo.puesto" required>
+      <input class="input input-bordered w-full" type="number" placeholder="Sueldo" name="sueldo" [(ngModel)]="nuevo.sueldo" required>
+      <input class="input input-bordered w-full" placeholder="Horario" name="horario" [(ngModel)]="nuevo.horario" required>
+    </div>
+    <button class="btn btn-primary" type="submit">{{ editingIndex !== null ? 'Actualizar' : 'Agregar' }}</button>
+    <button *ngIf="editingIndex !== null" class="btn ml-2" type="button" (click)="limpiar()">Cancelar</button>
+  </form>
+
+  <div class="overflow-x-auto">
+    <table class="table table-zebra w-full">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Cédula</th>
+          <th>Teléfono</th>
+          <th>Correo</th>
+          <th>Puesto</th>
+          <th>Sueldo</th>
+          <th>Horario</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let e of empleados; let i = index">
+          <td>{{ e.nombre }}</td>
+          <td>{{ e.cedula }}</td>
+          <td>{{ e.telefono }}</td>
+          <td>{{ e.correo }}</td>
+          <td>{{ e.puesto }}</td>
+          <td>{{ e.sueldo | currency:'USD' }}</td>
+          <td>{{ e.horario }}</td>
+          <td><button class="btn btn-sm" (click)="editarEmpleado(i)">Editar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

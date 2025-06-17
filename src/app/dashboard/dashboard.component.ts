@@ -10,7 +10,7 @@ import { MockDataService } from '../mock/mock-data.service';
 })
 export class DashboardComponent implements OnInit {
   resumen: any;
-  constructor(private data: MockDataService) {}
+  constructor(private data: MockDataService) { }
 
   ngOnInit() {
     this.resumen = this.data.getVentasResumen();

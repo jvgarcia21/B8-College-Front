@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MockDataService } from '../mock/mock-data.service';
 
@@ -8,7 +8,11 @@ import { MockDataService } from '../mock/mock-data.service';
   imports: [CommonModule],
   templateUrl: './employees.component.html'
 })
-export class EmployeesComponent {
-  empleados = this.data.getEmpleados();
-  constructor(private data: MockDataService) {}
+export class EmployeesComponent implements OnInit {
+  empleados: any;
+  constructor(private data: MockDataService) { }
+
+  ngOnInit() {
+    this.empleados = this.data.getEmpleados();
+  }
 }

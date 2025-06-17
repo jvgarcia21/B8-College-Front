@@ -11,7 +11,8 @@
       <li *ngIf="auth.userRole === 'admin'"><a routerLink="/inventario">Inventario</a></li>
       <li *ngIf="auth.userRole === 'admin'"><a routerLink="/costos">Costos</a></li>
       <li *ngIf="auth.userRole === 'admin'"><a routerLink="/empleados">Empleados</a></li>
-      <li><a routerLink="/mesas">Gestión de Mesas</a></li>
+      <li><a routerLink="/restaurante">Gestión de Mesas</a></li>
+      <li><a (click)="theme.toggle()">Cambiar Tema</a></li>
       <li><a (click)="auth.logout()" routerLink="/login">Salir</a></li>
     </ul>
   </div>

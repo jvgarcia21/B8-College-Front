@@ -19,7 +19,8 @@ export class MockDataService {
         cantidad: 5,
         precioUnitario: 10,
         fechaAdquisicion: '2024-01-01',
-        fechaVencimiento: '2024-06-01'
+        fechaVencimiento: '2024-06-01',
+        composicion: []
       },
       {
         id: 2,
@@ -28,7 +29,8 @@ export class MockDataService {
         cantidad: 8,
         precioUnitario: 2,
         fechaAdquisicion: '2024-01-10',
-        fechaVencimiento: '2024-02-10'
+        fechaVencimiento: '2024-02-10',
+        composicion: []
       },
       {
         id: 3,
@@ -37,7 +39,8 @@ export class MockDataService {
         cantidad: 3,
         precioUnitario: 3,
         fechaAdquisicion: '2024-01-05',
-        fechaVencimiento: '2024-03-05'
+        fechaVencimiento: '2024-03-05',
+        composicion: []
       },
       {
         id: 4,

@@ -85,4 +85,15 @@ export class CostosComponent implements OnInit {
       }
     });
   }
+
+  get categorias(): string[] {
+    return this.costos
+      .map(c => c.categoria)
+      .filter((v, i, a) => a.indexOf(v) === i && typeof v === 'string');
+  }
+
+  obtenerNombreProducto(id?: number): string {
+    const prod = this.productos.find(p => p.id === id);
+    return prod ? prod.nombre : 'N/A';
+  }
 }

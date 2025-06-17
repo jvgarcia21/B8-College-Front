@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { MockDataService } from '../mock/mock-data.service';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-costs',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './dashboard.component.html'
+  templateUrl: './costs.component.html'
 })
-export class DashboardComponent implements OnInit {
-  resumen: any;
+export class CostsComponent implements OnInit {
+  costos: any;
   constructor(private data: MockDataService) { }
 
   ngOnInit() {
-    this.resumen = this.data.getVentasResumen();
+    this.costos = this.data.getCostos();
   }
 }

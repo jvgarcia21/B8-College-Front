@@ -1,0 +1,87 @@
+<div class="p-6 space-y-6">
+  <form class="space-y-4" (ngSubmit)="agregarCosto()" #costoForm="ngForm">
+    <div class="flex gap-4">
+      <input
+        class="input input-bordered w-full"
+        placeholder="Categoría"
+        name="categoria"
+        [(ngModel)]="nuevo.categoria"
+        required
+      />
+      <input
+        class="input input-bordered w-full"
+        placeholder="Descripción"
+        name="descripcion"
+        [(ngModel)]="nuevo.descripcion"
+        required
+      />
+      <input
+        class="input input-bordered w-32"
+        type="number"
+        placeholder="Monto"
+        name="monto"
+        [(ngModel)]="nuevo.monto"
+        required
+      />
+    </div>
+    <div class="flex gap-4 items-center">
+      <select
+        class="select select-bordered"
+        name="productoId"
+        [(ngModel)]="nuevo.productoId"
+      >
+        <option [ngValue]="undefined">Sin producto</option>
+        <option *ngFor="let p of productos" [ngValue]="p.id">
+          {{ p.nombre }}
+        </option>
+      </select>
+      <button class="btn btn-primary" type="submit">Agregar</button>
+    </div>
+  </form>
+
+  <div class="overflow-x-auto">
+    <table class="table table-zebra w-full">
+      <thead>
+        <tr>
+          <th>Categoría</th>
+          <th>Descripción</th>
+          <th>Monto</th>
+          <th>Producto</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of costos">
+          <td>{{ c.categoria }}</td>
+          <td>{{ c.descripcion }}</td>
+          <td>{{ c.monto | currency : "USD" }}</td>
+          <td>{{ obtenerNombreProducto(c.productoId) }}</td>
+          <td>{{ c.fecha }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="overflow-x-auto">
+    <h2 class="font-bold">Reporte por Categoría</h2>
+    <table class="table table-zebra w-full">
+      <thead>
+        <tr>
+          <th>Categoría</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cat of categorias">
+          <td>{{ cat }}</td>
+          <td>{{ costosPorCategoria(cat) | currency : "USD" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <h2 class="font-bold mb-2">Márgenes de Ganancia por Producto</h2>
+    <canvas id="margenChart"></canvas>
+  </div>
+</div>

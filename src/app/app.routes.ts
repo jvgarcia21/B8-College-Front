@@ -2,9 +2,9 @@ import { Routes } from '@angular/router';
 import { roleGuard } from './guards/role.guard';
 import { LoginComponent } from './auth/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { InventoryComponent } from './inventory/inventory.component';
-import { CostsComponent } from './costs/costs.component';
-import { EmployeesComponent } from './employees/employees.component';
+import { InventarioComponent } from './inventario/inventario.component';
+import { CostosComponent } from './costos/costos.component';
+import { EmpleadosComponent } from './empleados/empleados.component';
 import { MesasComponent } from './restaurant/mesas/mesas.component';
 
 export const routes: Routes = [
@@ -17,19 +17,19 @@ export const routes: Routes = [
   },
   {
     path: 'inventario',
-    component: InventoryComponent,
+    component: InventarioComponent,
     canActivate: [roleGuard],
     data: { roles: ['admin'] }
   },
   {
     path: 'costos',
-    component: CostsComponent,
+    component: CostosComponent,
     canActivate: [roleGuard],
     data: { roles: ['admin'] }
   },
   {
     path: 'empleados',
-    component: EmployeesComponent,
+    component: EmpleadosComponent,
     canActivate: [roleGuard],
     data: { roles: ['admin'] }
   },

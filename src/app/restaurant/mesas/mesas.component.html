@@ -1,0 +1,9 @@
+<div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+  <div *ngFor="let m of mesas" class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h2 class="card-title">{{ m.nombre }}</h2>
+      <p *ngIf="m.disponible" class="text-success">Disponible</p>
+      <p *ngIf="!m.disponible" class="text-error">Ocupada</p>
+    </div>
+  </div>
+</div>

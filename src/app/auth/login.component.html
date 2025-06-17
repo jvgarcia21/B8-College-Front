@@ -1,0 +1,13 @@
+<div class="flex items-center justify-center min-h-screen bg-base-200">
+  <div class="card w-96 bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">Ingresar</h2>
+      <form (ngSubmit)="login()" class="flex flex-col gap-4">
+        <input class="input input-bordered" name="username" [(ngModel)]="username" placeholder="Usuario" />
+        <input type="password" class="input input-bordered" name="password" [(ngModel)]="password" placeholder="Contrase\u00f1a" />
+        <button class="btn btn-primary" type="submit">Entrar</button>
+        <p *ngIf="error" class="text-error">Credenciales incorrectas</p>
+      </form>
+    </div>
+  </div>
+</div>

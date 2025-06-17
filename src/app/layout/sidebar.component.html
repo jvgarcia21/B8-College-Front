@@ -1,0 +1,18 @@
+<div class="drawer lg:drawer-open">
+  <input id="sidebar" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content flex flex-col">
+    <label for="sidebar" class="btn btn-primary drawer-button lg:hidden m-4">Menu</label>
+    <ng-content></ng-content>
+  </div>
+  <div class="drawer-side">
+    <label for="sidebar" class="drawer-overlay"></label>
+    <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+      <li><a routerLink="/">Dashboard</a></li>
+      <li *ngIf="auth.userRole === 'admin'"><a routerLink="/inventario">Inventario</a></li>
+      <li *ngIf="auth.userRole === 'admin'"><a routerLink="/costos">Costos</a></li>
+      <li *ngIf="auth.userRole === 'admin'"><a routerLink="/empleados">Empleados</a></li>
+      <li><a routerLink="/mesas">Gestión de Mesas</a></li>
+      <li><a (click)="auth.logout()" routerLink="/login">Salir</a></li>
+    </ul>
+  </div>
+</div>

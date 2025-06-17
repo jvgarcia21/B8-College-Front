@@ -1,0 +1,12 @@
+<div class="card bg-base-200 shadow mt-2">
+  <div class="card-body">
+    <h3 class="card-title">Ticket</h3>
+    <div *ngFor="let o of mesa.ordenes" class="border-b py-1">
+      <p class="font-semibold">Orden #{{ o.id }} - {{ o.estado }}</p>
+      <ul class="list-disc pl-5">
+        <li *ngFor="let p of o.productos">{{ p.cantidad }} x {{ p.nombre }} - {{ p.precio | currency:'USD':'symbol' }}</li>
+      </ul>
+    </div>
+    <p class="font-bold mt-2">Total: {{ total | currency:'USD':'symbol' }}</p>
+  </div>
+</div>

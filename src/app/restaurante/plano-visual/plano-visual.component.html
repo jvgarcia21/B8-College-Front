@@ -1,0 +1,11 @@
+<div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+  <div *ngFor="let m of mesas" class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h2 class="card-title">{{ m.nombre }}</h2>
+      <p [ngClass]="m.abierta ? 'text-error' : 'text-success'">
+        {{ m.abierta ? 'Ocupada' : 'Libre' }}
+      </p>
+      <button class="btn btn-primary btn-sm" (click)="detalle(m.id)">Abrir</button>
+    </div>
+  </div>
+</div>

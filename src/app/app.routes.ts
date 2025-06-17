@@ -5,7 +5,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { InventarioComponent } from './inventario/inventario.component';
 import { CostosComponent } from './costos/costos.component';
 import { EmpleadosComponent } from './empleados/empleados.component';
-import { MesasComponent } from './restaurant/mesas/mesas.component';
+import { PlanoVisualComponent } from './restaurante/plano-visual/plano-visual.component';
+import { MesaDetalleComponent } from './restaurante/mesa-detalle/mesa-detalle.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -34,10 +35,11 @@ export const routes: Routes = [
     data: { roles: ['admin'] }
   },
   {
-    path: 'mesas',
-    component: MesasComponent,
-    canActivate: [roleGuard],
-    data: { roles: ['admin', 'empleado'] }
+    path: 'restaurante',
+    children: [
+      { path: '', component: PlanoVisualComponent, canActivate: [roleGuard], data: { roles: ['admin', 'empleado'] } },
+      { path: 'mesa/:id', component: MesaDetalleComponent, canActivate: [roleGuard], data: { roles: ['admin', 'empleado'] } }
+    ]
   },
   { path: '**', redirectTo: '' }
 ];

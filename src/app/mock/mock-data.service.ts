@@ -10,6 +10,17 @@ export class MockDataService {
     };
   }
 
+  getDashboardStats() {
+    return {
+      ventas: { dia: 1200, semana: 8000, mes: 32000 },
+      productosMasVendidos: ['Pizza', 'Hamburguesa', 'Refresco'],
+      horasActivas: ['12:00-14:00', '19:00-21:00'],
+      costos: 15000,
+      ingresos: 32000,
+      alertas: ['Queso bajo', 'Salsa de tomate vencida']
+    };
+  }
+
   getInventario() {
     return [
       {

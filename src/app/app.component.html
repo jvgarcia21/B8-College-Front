@@ -1,3 +1,8 @@
-<app-sidebar>
+<ng-container *ngIf="showSidebar; else simple">
+  <app-sidebar>
+    <router-outlet></router-outlet>
+  </app-sidebar>
+</ng-container>
+<ng-template #simple>
   <router-outlet></router-outlet>
-</app-sidebar>
+</ng-template>

@@ -1,16 +1,52 @@
-<div class="p-6 space-y-4">
+<div class="p-6 space-y-6" *ngIf="datos">
+  <div class="stats shadow grid grid-cols-1 md:grid-cols-3">
+    <div class="stat">
+      <div class="stat-title">Ventas Diarias</div>
+      <div class="stat-value">$ {{ datos.ventas.dia }}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Ventas Semanales</div>
+      <div class="stat-value">$ {{ datos.ventas.semana }}</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Ventas Mensuales</div>
+      <div class="stat-value">$ {{ datos.ventas.mes }}</div>
+    </div>
+  </div>
+
+  <div class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h2 class="card-title">Productos más vendidos</h2>
+      <ul class="list-disc pl-5">
+        <li *ngFor="let p of datos.productosMasVendidos">{{ p }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card bg-base-100 shadow">
+    <div class="card-body">
+      <h2 class="card-title">Horarios más activos</h2>
+      <p>{{ datos.horasActivas.join(', ') }}</p>
+    </div>
+  </div>
+
   <div class="stats shadow">
     <div class="stat">
-      <div class="stat-title">Ventas Totales</div>
-      <div class="stat-value">$ {{ resumen.total }}</div>
+      <div class="stat-title">Costo Total</div>
+      <div class="stat-value">$ {{ datos.costos }}</div>
     </div>
     <div class="stat">
-      <div class="stat-title">Mesas Ocupadas</div>
-      <div class="stat-value">{{ resumen.mesasOcupadas }}</div>
+      <div class="stat-title">Ingreso Total</div>
+      <div class="stat-value">$ {{ datos.ingresos }}</div>
     </div>
-    <div class="stat">
-      <div class="stat-title">Pedidos Pendientes</div>
-      <div class="stat-value">{{ resumen.pedidosPendientes }}</div>
+  </div>
+
+  <div class="card bg-base-100 shadow" *ngIf="datos.alertas.length">
+    <div class="card-body">
+      <h2 class="card-title">Alertas de Inventario</h2>
+      <ul class="list-disc pl-5">
+        <li *ngFor="let a of datos.alertas">{{ a }}</li>
+      </ul>
     </div>
   </div>
 </div>
